@@ -1,4 +1,4 @@
-# Collects an image from Pixabay
+# Searches and downloads files from Pixabay.com
 
 import os
 import csv
@@ -14,12 +14,12 @@ from dotenv import load_dotenv
 
 class Pixabay:
     """
-    Collects and masters an image from Pixabay
+    Searches and downloads files from Pixabay.com
     """
 
     def __init__(self):
         """
-        Collects and masters an image from Pixabay
+        Searches and downloads files from Pixabay.com
         """
 
         # Set up paths
