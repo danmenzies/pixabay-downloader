@@ -175,7 +175,7 @@ class Pixabay:
 
     def save_search_results(self, term='', orientation='all', category='', min_width=1000, min_height=1000, search_type='all'):
         """
-        Show the results of a search
+        Saves the results of a search
         :param term: Search term
         :param orientation: Image orientation [a|h|v]
         :param category: Image category
@@ -247,7 +247,7 @@ class Pixabay:
 
     def download_results(self, slugified_term=''):
         """
-        Saves the results from a single keyword phrase
+        Downloads images from a search result
         :param: Slug to use for sourcing and saving
         """
 
