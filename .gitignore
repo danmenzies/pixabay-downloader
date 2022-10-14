@@ -6,3 +6,4 @@
 
 # ...and prevent common IDE files going in
 /.idea
+/modules/__pycache__
