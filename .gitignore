@@ -1,0 +1,8 @@
+# Make sure API Keys aren't committed to the repo
+/config/.env
+
+# Prevent data going in to the repo
+/data/
+
+# ...and prevent common IDE files going in
+/.idea
