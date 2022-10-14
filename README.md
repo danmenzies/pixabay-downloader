@@ -13,7 +13,7 @@ Pulls images from Pixabay based on a search term, then saves them to a local fol
 
 ## Usage
 
-### Search for images
+### `search.py`
 
 Get an idea of how many images a download will pull, for a specific search term. Note the maximum number of images returned 
 via the API is 500 (even if there are thousands of results on the site).
@@ -35,7 +35,7 @@ Result:
 Found 162 images
 ```
 
-### Download images
+### `download.py`
 
 Downloads images from Pixabay and saves them to the `./data/{search-term}` folder (eg, `./data/landcapes-at-night`).
 
