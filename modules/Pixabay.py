@@ -45,6 +45,7 @@ class Pixabay:
         self.__min_width = ''
         self.__min_height = ''
         self.__search_type = ''
+        self.__colors = ''
 
         # ...and build the search URL
         self.__search_url = \
@@ -57,11 +58,12 @@ class Pixabay:
                 '&category={5}' \
                 '&min_width={6}' \
                 '&min_height={7}' \
+                '&colors={8}' \
                 '&safesearch=true' \
                 '&per_page=200' \
                 '&pretty=true'
 
-    def set_search_params(self, orientation='all', category='', min_width=1000, min_height=1000, search_type='all'):
+    def set_search_params(self, orientation='all', category='', min_width=1000, min_height=1000, search_type='all', colors=''):
         """
         Sets the current search parameters
         :param orientation: Image orientation
@@ -69,6 +71,7 @@ class Pixabay:
         :param min_width: Minimum width
         :param min_height: Minimum height
         :param search_type: Type of image to search for
+        :param colors: Comma separated list of colors
         :return:
         """
 
@@ -116,7 +119,40 @@ class Pixabay:
         elif search_type == 'i':
             self.__search_type = 'illustration'
 
-    def show_search_results(self, term='', orientation='all', category='', min_width=1000, min_height=1000, search_type='all'):
+        # Set the colours, if we don't have any
+        valid_colors = [
+            'grayscale',
+            'transparent',
+            'red',
+            'orange',
+            'yellow',
+            'green',
+            'turquoise',
+            'blue',
+            'lilac',
+            'pink',
+            'white',
+            'gray',
+            'black',
+            'brown'
+        ]
+
+        # Collect the passed colours
+        color_list = colors.split(',')
+
+        # Do we have a colour list?
+        if len(colors) > 0:
+
+            # Yes; check each one is valid
+            for color in color_list:
+                if color.strip() not in valid_colors:
+                    color_list.remove(color)
+
+            # ...and add them to the list of colours to pass to the API
+            self.__colors = ','.join(color_list)
+            self.__colors = self.__colors.replace(' ','').strip()
+
+    def show_search_results(self, term='', orientation='all', category='', min_width=1000, min_height=1000, search_type='all', colors=''):
         """
         Show the results of a search
         :param term: Search term
@@ -125,6 +161,7 @@ class Pixabay:
         :param min_width: Minimum width
         :param min_height: Minimum height
         :param search_type: Type of image to search for [a|p|i|v]
+        :param colors: Comma separated list of colors
         :return:
         """
 
@@ -134,7 +171,8 @@ class Pixabay:
             category=category,
             min_width=min_width,
             min_height=min_height,
-            search_type=search_type
+            search_type=search_type,
+            colors=colors
         )
 
         # Build the search URL
@@ -146,7 +184,8 @@ class Pixabay:
             self.__orientation,
             self.__category,
             self.__min_width,
-            self.__min_height
+            self.__min_height,
+            self.__colors
         )
 
         # Create a line gap
@@ -173,7 +212,7 @@ class Pixabay:
         print("Failed to fetch search results, sorry.")
         return False
 
-    def save_search_results(self, term='', orientation='all', category='', min_width=1000, min_height=1000, search_type='all'):
+    def save_search_results(self, term='', orientation='all', category='', min_width=1000, min_height=1000, search_type='all', colors=''):
         """
         Saves the results of a search
         :param term: Search term
@@ -182,6 +221,7 @@ class Pixabay:
         :param min_width: Minimum width
         :param min_height: Minimum height
         :param search_type: Type of image to search for [a|p|i|v]
+        :param colors: Comma separated list of colors
         :return:
         """
 
@@ -191,7 +231,8 @@ class Pixabay:
             category=category,
             min_width=min_width,
             min_height=min_height,
-            search_type=search_type
+            search_type=search_type,
+            colors=colors
         )
 
         # Refine the keyword term
@@ -226,7 +267,8 @@ class Pixabay:
                 self.__orientation,
                 self.__category,
                 self.__min_width,
-                self.__min_height
+                self.__min_height,
+                self.__colors
             )
 
             # Fetch the results

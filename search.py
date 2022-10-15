@@ -13,10 +13,11 @@ def search_images():
     # Collect the search term and parameters from the user
     term = input("Image search term: ")
     orientation = input("Image orientation > [a]ll, [h]orizontal, [v]ertical: ")
+    search_type = input("Image type > [a]ll, [p]hoto, [i]llustration, [v]ector: ")
+    colors = input("Colors (optional): ")
     category = input("Narrow by image category (optional): ")
     min_width = input("Minimum image width (optional): ")
     min_height = input("Minimum image height (optional): ")
-    search_type = input("Image type > [a]ll, [p]hoto, [i]llustration, [v]ector: ")
 
     # Instantiate the Pixabay image grabber
     pixabay = Pixabay()
@@ -28,7 +29,8 @@ def search_images():
         category=category,
         min_width=min_width,
         min_height=min_height,
-        search_type=search_type
+        search_type=search_type,
+        colors=colors
     )
 
 

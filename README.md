@@ -23,10 +23,10 @@ python search.py
 
 "Image search term: " landcapes at night
 "Image orientation > [a]ll, [h]orizontal, [v]ertical:" h
+"Image type > [a]ll, [p]hoto, [i]llustration, [v]ector:" p
 "Narrow by image category (optional):" nature
 "Minimum image width (optional):" 1920
 "Minimum image height (optional):" 1080 
-"Image type > [a]ll, [p]hoto, [i]llustration, [v]ector:" p
 ```
 
 Result:
@@ -44,10 +44,10 @@ python download.py
 
 "Image search term: " landcapes at night
 "Image orientation > [a]ll, [h]orizontal, [v]ertical:" h
+"Image type > [a]ll, [p]hoto, [i]llustration, [v]ector:" p
 "Narrow by image category (optional):" nature
 "Minimum image width (optional):" 1920
 "Minimum image height (optional):" 1080 
-"Image type > [a]ll, [p]hoto, [i]llustration, [v]ector:" p
 ```
 
 Result
@@ -100,6 +100,25 @@ The following categories are available via the Pixabay API:
 * `buildings`
 * `business`
 * `music`
+
+## Colors
+
+The following colors are available via the Pixabay API:
+
+* `grayscale`
+* `transparent`
+* `red`
+* `orange`
+* `yellow`
+* `green`
+* `turquoise`
+* `blue`
+* `lilac`
+* `pink`
+* `white`
+* `gray`
+* `black`
+* `brown`
 
 ## Personal Notes
 
